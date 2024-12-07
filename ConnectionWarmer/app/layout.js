@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function AppLayout() {
   return (
-    <Tabs>
+    <Tabs screenOptions={{ headerShown: true }}>
       <Tabs.Screen
         name="index"
         options={{
@@ -25,10 +25,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name="interactions"
         options={{
+          href: null,
+          headerShown: true,
           title: 'Interactions',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="chatbubbles" size={24} color={color} />
-          ),
         }}
       />
     </Tabs>

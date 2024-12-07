@@ -1,33 +1,33 @@
-import { View, ScrollView, StyleSheet } from 'react-native';
-import { UpcomingReminders } from './components/dashboard';
+import { View, StyleSheet } from 'react-native';
 import { Button } from './components/ui';
-import { useRouter } from 'expo-router';
+import { router } from 'expo-router';
 
 export default function Home() {
-  const router = useRouter();
-  const reminders = [
-    { contactName: 'John Doe', dueDate: '2024-02-01' },
-    { contactName: 'Jane Smith', dueDate: '2024-02-03' },
-  ];
+  const handleViewContacts = () => {
+    router.push('/contacts');
+  };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Button 
-        title="Add New Contact" 
-        onPress={() => router.push('/contacts')}
+        title="View Contacts"
+        onPress={handleViewContacts}
         style={styles.button}
       />
-      <UpcomingReminders reminders={reminders} />
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#121212',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16
   },
   button: {
-    margin: 16,
-  },
+    width: '100%',
+    maxWidth: 300
+  }
 });
